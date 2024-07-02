@@ -139,15 +139,24 @@
 			<plugin>
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
-				<version>1.5.2</version>
+				<version>1.7.1</version>
 				<configuration>
 					<targetClasses>
-						<param>com.github.mauricioaniche.ck.*</param>
+						<param>com.github.mauricioaniche.ck.util.*</param>
 					</targetClasses>
 					<targetTests>
-						<param>com.github.mauricioaniche.ck.*</param>
+						<param>com.github.mauricioaniche.ck.util.*</param>
+						<param>com.github.mauricioaniche.ck.JDTUtilsTest</param>
+						<param>com.github.mauricioaniche.ck.JDTUtilsTest</param>
 					</targetTests>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.pitest</groupId>
+						<artifactId>pitest-junit5-plugin</artifactId>
+						<version>0.14</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 
 			<plugin>
@@ -204,7 +213,7 @@
 					</execution>
 				</executions>
 			</plugin>
-
+<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -222,7 +231,7 @@
 					</execution>
 				</executions>
 			</plugin>
-
+-->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
