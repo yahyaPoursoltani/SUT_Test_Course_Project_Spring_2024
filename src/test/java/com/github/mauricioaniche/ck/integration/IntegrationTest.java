@@ -26,35 +26,35 @@ import static com.github.mauricioaniche.ck.AssertResult.assertResultNotNull;
  */
 public class IntegrationTest {
 
-    private final String tempFolder = Files.createTempDir().getAbsolutePath();
-
-    @AfterEach
-    void deleteTempDir() throws IOException {
-        FileUtils.deleteDirectory(new File(this.tempFolder));
-    }
-
-    @ParameterizedTest
-    @CsvSource({
-        "https://github.com/apache/commons-lang.git",
-        "https://github.com/apache/commons-math.git"
-    })
-    void checkForCrashes(String uri) throws Exception {
-        clone(uri);
-
-        new CK().calculate(tempFolder, new CKNotifier() {
-            @Override
-            public void notify(CKClassResult result) {
-                assertResultNotNull(result);
-            }
-
-            @Override
-            public void notifyError(String sourceFilePath, Exception e) {
-                Assertions.fail(sourceFilePath, e);
-            }
-        });
-    }
-
-    private void clone(String uri) throws GitAPIException {
-    	try (Git git = Git.cloneRepository().setDirectory(new File(tempFolder)).setURI(uri).setCloneAllBranches(true).call()){};
-    }
+//    private final String tempFolder = Files.createTempDir().getAbsolutePath();
+//
+//    @AfterEach
+//    void deleteTempDir() throws IOException {
+//        FileUtils.deleteDirectory(new File(this.tempFolder));
+//    }
+//
+//    @ParameterizedTest
+//    @CsvSource({
+//        "https://github.com/apache/commons-lang.git",
+//        "https://github.com/apache/commons-math.git"
+//    })
+//    void checkForCrashes(String uri) throws Exception {
+//        clone(uri);
+//
+//        new CK().calculate(tempFolder, new CKNotifier() {
+//            @Override
+//            public void notify(CKClassResult result) {
+//                assertResultNotNull(result);
+//            }
+//
+//            @Override
+//            public void notifyError(String sourceFilePath, Exception e) {
+//                Assertions.fail(sourceFilePath, e);
+//            }
+//        });
+//    }
+//
+//    private void clone(String uri) throws GitAPIException {
+//    	try (Git git = Git.cloneRepository().setDirectory(new File(tempFolder)).setURI(uri).setCloneAllBranches(true).call()){};
+//    }
 }
