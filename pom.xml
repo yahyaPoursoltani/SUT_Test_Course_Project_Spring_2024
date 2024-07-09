@@ -148,13 +148,6 @@
 						<param>com.github.mauricioaniche.ck.LOCTest</param>
 					</targetTests>
 				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.pitest</groupId>
-						<artifactId>pitest-junit5-plugin</artifactId>
-						<version>0.14</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 
 			<plugin>
