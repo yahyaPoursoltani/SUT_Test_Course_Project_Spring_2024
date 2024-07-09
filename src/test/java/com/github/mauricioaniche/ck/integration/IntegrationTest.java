@@ -5,10 +5,12 @@ import com.github.mauricioaniche.ck.CKClassResult;
 import com.github.mauricioaniche.ck.CKNotifier;
 import com.google.common.io.Files;
 import org.apache.commons.io.FileUtils;
+import org.assertj.core.internal.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -24,6 +26,7 @@ import static com.github.mauricioaniche.ck.AssertResult.assertResultNotNull;
  *
  * They require internet connection and might take a while to run.
  */
+@Disabled("These tests require internet access and might take a while to run.")
 public class IntegrationTest {
 
     private final String tempFolder = Files.createTempDir().getAbsolutePath();
@@ -35,8 +38,8 @@ public class IntegrationTest {
 
     @ParameterizedTest
     @CsvSource({
-        "https://github.com/apache/commons-lang.git",
-        "https://github.com/apache/commons-math.git"
+       "https://github.com/apache/commons-lang.git",
+       "https://github.com/apache/commons-math.git"
     })
     void checkForCrashes(String uri) throws Exception {
         clone(uri);
