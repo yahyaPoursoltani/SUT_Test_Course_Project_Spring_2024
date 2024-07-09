@@ -9,6 +9,7 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -24,6 +25,7 @@ import static com.github.mauricioaniche.ck.AssertResult.assertResultNotNull;
  *
  * They require internet connection and might take a while to run.
  */
+@Disabled
 public class IntegrationTest {
 
     private final String tempFolder = Files.createTempDir().getAbsolutePath();
