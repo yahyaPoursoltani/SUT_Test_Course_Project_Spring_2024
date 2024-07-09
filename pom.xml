@@ -142,10 +142,10 @@
 				<version>1.5.2</version>
 				<configuration>
 					<targetClasses>
-						<param>com.github.mauricioaniche.ck.metric.CBO</param>
+						<param>com.github.mauricioaniche.ck.metric.LCOM</param>
 					</targetClasses>
 					<targetTests>
-						<param>com.github.mauricioaniche.ck.CBOTest</param>
+						<param>com.github.mauricioaniche.ck.LOCTest</param>
 					</targetTests>
 				</configuration>
 				<dependencies>
