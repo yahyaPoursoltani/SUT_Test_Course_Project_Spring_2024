@@ -7,7 +7,6 @@
 	<name>CK calculator</name>
 	<url>http://www.mauricioaniche.com</url>
 	<description>Java code metrics calculator</description>
-
 	<licenses>
 		<license>
 			<name>Apache License, Version 2.0</name>
@@ -15,7 +14,6 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-
 	<developers>
 		<developer>
 			<id>mauricioaniche</id>
@@ -28,90 +26,75 @@
 			<timezone>-3</timezone>
 		</developer>
 	</developers>
-
 	<scm>
 		<url>http://github.com/mauricioaniche/ck</url>
 		<connection>scm:git:git://github.com/mauricioaniche/ck.git</connection>
 		<developerConnection>scm:git:git@github.com:mauricioaniche/ck.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
-
 	<dependencies>
-
-		<!-- test dependencies -->
+		<!--  test dependencies  -->
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<version>3.20.2</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.eclipse.jgit</groupId>
 			<artifactId>org.eclipse.jgit</artifactId>
 			<version>5.12.0.202106070339-r</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.8.0-M1</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-params</artifactId>
 			<version>5.8.0-M1</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- main deps  -->
+		<!--  main deps   -->
 		<dependency>
 			<groupId>org.reflections</groupId>
 			<artifactId>reflections</artifactId>
 			<version>0.9.12</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.eclipse.jdt</groupId>
 			<artifactId>org.eclipse.jdt.core</artifactId>
 			<version>3.26.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>30.1.1-jre</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.30</version>
 		</dependency>
-
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.10.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.12.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-csv</artifactId>
 			<version>1.8</version>
 		</dependency>
-
 	</dependencies>
-
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
@@ -122,34 +105,37 @@
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
-
 	<build>
 		<plugins>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.9.0</version>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
-
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
-				<version>1.5.2</version>
+				<version>1.7.1</version>
 				<configuration>
 					<targetClasses>
-						<param>com.github.mauricioaniche.ck.*</param>
+						<param>com.github.mauricioaniche.ck.metric.LCOM</param>
 					</targetClasses>
 					<targetTests>
-						<param>com.github.mauricioaniche.ck.*</param>
+						<param>com.github.mauricioaniche.ck.LOCTest</param>
 					</targetTests>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.pitest</groupId>
+						<artifactId>pitest-junit5-plugin</artifactId>
+						<version>0.14</version>
+					</dependency>
+				</dependencies>
 			</plugin>
-
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
@@ -163,16 +149,14 @@
 					</descriptorRefs>
 				</configuration>
 				<executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
-
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
@@ -184,13 +168,12 @@
 						<version>1.11.2</version>
 					</dependency>
 					<dependency>
-					  <groupId>org.apache.maven.scm</groupId>
-					  <artifactId>maven-scm-api</artifactId>
-					  <version>1.11.2</version>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-api</artifactId>
+						<version>1.11.2</version>
 					</dependency>
 				</dependencies>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -199,30 +182,30 @@
 					<execution>
 						<id>attach-sources</id>
 						<goals>
-						<goal>jar</goal>
+							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.2.0</version>
-				<configuration>
-					<doclint>none</doclint>
-					<source>8</source>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-						<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
+			<!--
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <version>3.2.0</version>
+                            <configuration>
+                                <doclint>none</doclint>
+                                <source>8</source>
+                            </configuration>
+                            <executions>
+                                <execution>
+                                    <id>attach-javadocs</id>
+                                    <goals>
+                                    <goal>jar</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+             -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -242,7 +225,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -250,7 +232,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<profiles>
 		<profile>
 			<id>release-sign-artifacts</id>
@@ -279,7 +260,6 @@
 			</build>
 		</profile>
 	</profiles>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
