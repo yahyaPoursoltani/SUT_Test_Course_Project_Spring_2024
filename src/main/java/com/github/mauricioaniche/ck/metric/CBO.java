@@ -89,7 +89,6 @@ public class CBO implements CKASTVisitor, ClassLevelMetric, MethodLevelMetric {
 	@Override
 	public void visit(CastExpression node) {
 		coupleTo(node.getType());
-
 	}
 
 	@Override
