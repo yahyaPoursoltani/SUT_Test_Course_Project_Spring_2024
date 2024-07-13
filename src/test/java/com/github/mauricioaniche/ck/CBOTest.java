@@ -14,6 +14,12 @@ public class CBOTest extends BaseTest {
 	public void setUp() {
 		report = run(fixturesDir() + "/cbo");
 	}
+
+	@Test
+	public void testCasting(){
+		CKClassResult a = report.get("cbo.TC_Casting");
+		Assertions.assertEquals(3, a.getCbo());
+	}
 	
 	@Test
 	public void ignoreJavaTypes() {
