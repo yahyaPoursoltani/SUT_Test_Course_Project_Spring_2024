@@ -26,11 +26,14 @@ public class LCOMNormalizedTest extends BaseTest{
 		CKClassResult b = report.get("lcom.SimpleGetterAndSetter");
 		Assertions.assertEquals(0.0, b.getLcomNormalized());
 
-		CKClassResult c = report.get("lcom.SimpleGetterAndSetter2");
-		Assertions.assertEquals(0.5, c.getLcomNormalized());
+		CKClassResult c = report.get("TC_withoutAttr");
+		Assertions.assertEquals(0.0, c.getLcomNormalized());
 
-		CKClassResult d = report.get("lcom.TermsOfServiceController");
-		Assertions.assertEquals(0.0, d.getLcomNormalized());
+		CKClassResult d = report.get("lcom.SimpleGetterAndSetter2");
+		Assertions.assertEquals(0.5, d.getLcomNormalized());
+
+		CKClassResult e = report.get("lcom.TermsOfServiceController");
+		Assertions.assertEquals(0.0, e.getLcomNormalized());
 
 	}
 	
