@@ -75,6 +75,11 @@ public class NumberOfMaxNestedBlocksTest extends BaseTest {
 
 		Assertions.assertEquals(6, a.getMaxNestedBlocks());
 	}
+	@Test
+	public void withoutBlock(){
+		CKClassResult result = report.get("TC_NoBlock_WithCatch");
+		Assertions.assertEquals(1,result.getMaxNestedBlocks());
+	}
 
 	@Test
 	public void useSynchronized() {
