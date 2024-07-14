@@ -35,5 +35,11 @@ public class NOCTest extends BaseTest{
 		CKClassResult f = report.get("dit.X");
 		Assertions.assertEquals(0, f.getNoc());
 	}
+
+	@Test
+	public void Line40Negated(){
+		CKClassResult a = report.get("DitTest");
+		Assertions.assertEquals(2, a.getNoc());
+	}
 	
 }
