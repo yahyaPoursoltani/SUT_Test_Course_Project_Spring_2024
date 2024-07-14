@@ -154,4 +154,16 @@ public class CouplingTest extends BaseTest {
 		CKClassResult d = report.get("cbo.Coupling1");
 		Assertions.assertEquals(6, d.getCboModified());
 	}
+
+	@Test
+	public void Line65Negated() {
+		CKClassResult d = report.get("cbo.Test3");
+		Assertions.assertEquals(2, d.getCboModified());
+	}
+
+	@Test
+	public void Line71Negated(){
+		CKClassResult d = report.get("cbo.Test5");
+		Assertions.assertEquals(1, d.getCboModified());
+	}
 }
